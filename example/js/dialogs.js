@@ -50,15 +50,19 @@ var translateSubMod = angular.module('translate.sub',[]);
 						return _translations[_current][what];
 					else
 						return '';
+				},
+
+				setCurrentLang : function(lang){
+					_current = lang;
 				} // end instant
-			}; // end return 
+			}; // end return
 		}]; // end $get
 
 	}]); // end $translate
 
 	/**
 	 * Translate Filter
-	 * For use in an Angular template.  
+	 * For use in an Angular template.
 	 * Example: {{"DIALOGS_CLOSE" | translate}}
 	 */
 	translateSubMod.filter('translate',['$translate',function($translate){
@@ -66,6 +70,7 @@ var translateSubMod = angular.module('translate.sub',[]);
 			return $translate.instant(what);
 		};
 	}]); // end translate / translate.sub
+
 //== Controllers =============================================================//
 
 var ctrlrs; // will be dialogs.controllers module
