@@ -46,7 +46,13 @@ var translateSubMod = angular.module('translate.sub',[]);
 
 				setCurrentLang : function(lang){
 					_current = lang;
-				} // end instant
+				},
+				translations: function(lang, obj){
+					if(angular.isDefined(lang) && angular.isDefined(obj)){
+						_translations[lang] = angular.copy(obj);
+						_current = lang;
+					}
+				} // end translations
 			}; // end return
 		}]; // end $get
 
